@@ -1,4 +1,7 @@
 {
-    "FleetType": "Type of vehicle fleet; taxis, buses, etc",
-    "FleetLocationList": "List of coordinates where entities of the fleet are located in (Long, Lat) format"
+    "@context": {
+        "FleetType": "Type of vehicle fleet; taxis, buses, etc",
+        "FleetLocationList": "List of coordinates where entities of the fleet are located in (Long, Lat) format",
+        "FleetSize": "Number of Vehicles in fleet"
+    }
 }

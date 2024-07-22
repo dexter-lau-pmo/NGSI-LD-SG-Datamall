@@ -97,6 +97,7 @@ print("Attempt to upload to broker")
 #broker_url = "35.240.151.148"
 broker_url = "localhost"
 broker_port = 1026 # default, 80
+temporal_port = 8080#default 1026
 broker_tenant = "openiot"
 
 
@@ -107,7 +108,7 @@ def get_json_or_text(response):
         return response.text
 
 
-with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant) as client:
+with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
 #with Client() as client:
     # Try creating the entity
     #print(client.list_types())
