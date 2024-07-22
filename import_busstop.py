@@ -14,7 +14,8 @@ from requests.exceptions import RequestException, HTTPError
 from ngsildclient import Client, Entity, SmartDataModels
 from datetime import datetime
 
-
+#Context: https://schema.org/BusStop
+#API: https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf
 
 #import data from LTA
 
