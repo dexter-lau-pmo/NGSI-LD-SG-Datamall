@@ -57,6 +57,7 @@ print("Format data in NGSI-LD")
 # No context provided => defaults to NGSI-LD Core Context
 ctx = ["http://34.126.76.13/context.jsonld"] 
 
+entity_list = []
 
 for bus_stop in bus_stop_list:
     print(bus_stop.keys())
@@ -76,6 +77,7 @@ for bus_stop in bus_stop_list:
         if key!='location' and key!='id':
             entity.prop(key, value)
     
+    entity_list.append(entity) #Add to list
     # rel() sets a Relationship Property
     #entity.rel("refPointOfInterest", "PointOfInterest:RZ:MainSquare")
     
@@ -109,14 +111,15 @@ with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant) as clie
 #with Client() as client:
     # Try creating the entity
     #print(client.list_types())
-    print("\nupload to broker")
-    try:
-        ret = client.upsert(entity)
-        print("Entity created:", ret)
-    except (RequestException, HTTPError) as e:
-        print(f"Failed to create entity: {e}")
-    
-    
+    for ngsi_entity in entity_list:
+        print("\nupload to broker")
+        try:
+            ret = client.upsert(ngsi_entity)
+            print("Entity created:", ret)
+        except (RequestException, HTTPError) as e:
+            print(f"Failed to create entity: {e}")
+        
+        
     print("\nPull from broker")
     # Try retrieving the entity
     try:
