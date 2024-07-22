@@ -16,6 +16,7 @@ from datetime import datetime
 
 #Context: https://schema.org/BusStop
 #API: https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf
+#JSOn-LD visualiser: https://json-ld.org/playground/
 
 #import data from LTA
 
