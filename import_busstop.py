@@ -5,6 +5,13 @@ print(sys.version)
 
 import mylibs.constants  as constants
 from landtransportsg import PublicTransport
+
+import json
+from requests.exceptions import RequestException, HTTPError
+from ngsildclient import Client, Entity, SmartDataModels
+from datetime import datetime
+
+
 API_KEY = constants.LTA_API_KEY
 
 lta_client = PublicTransport(API_KEY)
@@ -15,10 +22,7 @@ print("Example bus stop: " , bus_stop_list[0])
 
 #NGSI-LD
 
-import json
-from requests.exceptions import RequestException, HTTPError
-from ngsildclient import Client, Entity, SmartDataModels
-from datetime import datetime
+
 
 # No context provided => defaults to NGSI-LD Core Context
 #ctx = "http://34.126.76.13/context.jsonld"

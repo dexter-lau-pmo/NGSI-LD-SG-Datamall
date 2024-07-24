@@ -2,6 +2,12 @@
 
 from landtransportsg import PublicTransport
 import mylibs.constants  as constants
+import json
+from requests.exceptions import RequestException, HTTPError
+from ngsildclient import Client, Entity, SmartDataModels
+from datetime import datetime
+
+
 API_KEY = constants.LTA_API_KEY
 
 
@@ -16,10 +22,7 @@ lta_client = PublicTransport(API_KEY)
 taxi_list = lta_client.taxi_availability()
 print("Number of Taxis is: " , len(taxi_list))
 
-import json
-from requests.exceptions import RequestException, HTTPError
-from ngsildclient import Client, Entity, SmartDataModels
-from datetime import datetime
+
 
 print("Taxi list")
 print(taxi_list)

@@ -193,6 +193,15 @@
         "BusStopCode":"https://schema.org/identifier",
 	"FleetType": "CustomContext:FleetType",
         "FleetLocationList": "CustomContext:FleetLocationList",
-        "FleetSize": "CustomCOntext:FleetSize"
+        "FleetSize": "CustomContext:FleetSize",
+        "Carpark": "https://smartdatamodels.org/dataModel.Parking/ParkingGroup",
+        "ParkingAvalibility": "https://smartdatamodels.org/dataModel.Parking/availableSpotNumber",
+        "ParkingChargeType": "https://smartdatamodels.org/dataModel.Parking/chargeType",
+        "ParkingMaxAvalibility": "https://smartdatamodels.org/dataModel.Parking/totalSpotNumber",
+        "DataSource": "https://smartdatamodels.org/source",
+        "ParkingSiteOwner": "https://smartdatamodels.org/dataModel.Parking/refParkingSite",
+        "DevelopmentName": "CustomContext:DevelopmentName",
+        "Region": "CustomContext:Region",
+        "LotType": "CustomContext:LotType"
     }
 }
