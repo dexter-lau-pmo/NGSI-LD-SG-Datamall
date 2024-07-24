@@ -1,0 +1,8 @@
+Carpark
+- ID
+- Location
+- Price (Pending terrence)
+- Avaliblity
+
+
+Smart Data model: https://github.com/smart-data-models/dataModel.Parking/blob/master/ParkingGroup/doc/spec.md
