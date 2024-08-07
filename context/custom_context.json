@@ -6,5 +6,6 @@
         "DevelopmentName": "Name of building",
         "Region": "Area of the city",
         "LotType": "Type of vehicle that can be parked here. C: Car, H: Heavy vehicle, M: Motorbike"
+        "CarParkID": "Government Agency's code for the CarparkID"
     }
 }

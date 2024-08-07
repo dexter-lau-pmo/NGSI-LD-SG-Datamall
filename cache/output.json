@@ -1,0 +1,534 @@
+[
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK330/337ANGMOKIOAVENUE8A25",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "A25"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 330/337 ANG MO KIO AVENUE 8"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.851627,
+          1.362769
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 306
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK436/443/445ANGMOKIOSTREET43A36",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "A36"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 436/443/445 ANG MO KIO STREET 43"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.855279,
+          1.366407
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 400
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK407/410/421ANGMOKIOAVENUE10A38",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "A38"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 407/410/421 ANG MO KIO AVENUE 10"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.854588,
+          1.363964
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 411
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK401/405ANGMOKIOAVENUE10A39",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "A39"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 401/405 ANG MO KIO AVENUE 10"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.854072,
+          1.361151
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 84
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK471/476ANGMOKIOSTREET44A40",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "A40"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 471/476 ANG MO KIO STREET 44"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.856982,
+          1.362356
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 373
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK466/470ANGMOKIOSTREET44A41",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "A41"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 466/470 ANG MO KIO STREET 44"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.856933,
+          1.364937
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 180
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK461/465ANGMOKIOSTREET44A42",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "A42"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 461/465 ANG MO KIO STREET 44"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.857364,
+          1.36658
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 95
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK457/458/460ANGMOKIOSTREET44A43",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "A43"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 457/458/460 ANG MO KIO STREET 44"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.859267,
+          1.365997
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 45
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK352AANGMOKIOSTREET32AM96",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "AM96"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 352A ANG MO KIO STREET 32"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.85094,
+          1.364074
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 340
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK181-186BISHANSTREET13BE11",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "BE11"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 181-186 BISHAN STREET 13"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.853041,
+          1.349779
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 234
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK207ABISHANSTREET23BE25",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "BE25"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 207A BISHAN STREET 23"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.848309,
+          1.355154
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 194
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK207/212/216/217BISHANSTREET23BE26",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "BE26"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 207/212/216/217 BISHAN STREET 23"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.848457,
+          1.355895
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 31
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK212ABISHANSTREET23BE27",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "BE27"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 212A BISHAN STREET 23"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.848631,
+          1.356656
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 241
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK213-215,218-227BISHANSTREET23BE28",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "BE28"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 213-215,218-227 BISHAN STREET 23"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.84805,
+          1.357926
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 94
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "HDB"
+    }
+  }
+]
