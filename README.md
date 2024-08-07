@@ -29,6 +29,8 @@
 pip install landtransportsg
 pip install ngsildclient
 pip install geopy
+pip install telegram
+pip install python-telegram-bot
 ```
 
 ### Step 4: Start NGSI-LD Broker
