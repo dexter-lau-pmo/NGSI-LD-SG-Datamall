@@ -1,5 +1,5 @@
 
-# NGSI-LD-SG-Datamall
+# NGSI-LD-SG-Datamall: Examples for interns
  Pull open Singapore data into NGSI-LD broker
 
 #To run
@@ -41,7 +41,7 @@ python delete_parkingspots.py
 =======
 
 
-# NGSI-LD Datamall
+# NGSI-LD Datamall Telegrambot
 
 ## Readme
 
