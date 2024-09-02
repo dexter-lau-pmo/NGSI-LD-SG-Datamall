@@ -15,7 +15,7 @@ from datetime import datetime
 import logging
 from geopy.distance import geodesic
 from telegram import Update, ForceReply, ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, ContextTypes, ConversationHandler, MessageHandler, filters, JobQueue
+from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, ContextTypes, ConversationHandler, MessageHandler, filters
 
 # Logging setup
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -53,7 +53,7 @@ def find_closest_three_carparks(nearest_carparks_list, dest_lat, dest_long):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Start the conversation and ask for destination location."""
     if update.message:
-        await update.message.reply_text('Hi! Please share your destination location by sending your location using the location sharing feature.')
+        await update.message.reply_text('Hi! Please share your destination location.')
     return DESTINATION
 
 async def destination(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -62,88 +62,66 @@ async def destination(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
         user = update.message.from_user
         destination_location = update.message.location
         user_data[user.id] = {
-            'destination': (destination_location.latitude, destination_location.longitude),
-            'notified_within_5km': False,
-            'live_location': None
+            'destination': (destination_location.latitude, destination_location.longitude)
         }
 
-        try:
-            nearest_carparks = ngsi_parking.geoquery_ngsi_point(input_type="Carpark", maxDistance=1000, lat=destination_location.latitude, long=destination_location.longitude)
+        nearest_carparks = ngsi_parking.geoquery_ngsi_point(input_type="Carpark", maxDistance=1000, lat=destination_location.latitude, long=destination_location.longitude)
 
-            if len(nearest_carparks) == 0:
-                await update.message.reply_text("No nearby carparks found.")
-            else:
-                closest_three_carparks = find_closest_three_carparks(nearest_carparks_list=nearest_carparks, dest_lat=destination_location.latitude, dest_long=destination_location.longitude)
+        if len(nearest_carparks) == 0:
+            await update.message.reply_text("No Nearby carparks")
+        else:
+            closest_three_carparks = find_closest_three_carparks(nearest_carparks_list=nearest_carparks, dest_lat=destination_location.latitude, dest_long=destination_location.longitude)
 
-                closest_carparks_message = "The closest 3 carparks to your destination are:\n"
-                for count, carpark in enumerate(closest_three_carparks, 1):
-                    closest_carparks_message += (
-                        f"{count}: \nArea: {carpark['DevelopmentName']['value']} \nLots: {carpark['ParkingAvalibility']['value']} \n"
-                        f"Distance from destination: {carpark['distance']} km\n"
-                    )
+            closest_carparks_message = "The closest 3 carparks to your destination are:\n"
+            for count, carpark in enumerate(closest_three_carparks, 1):
+                closest_carparks_message += (
+                    f"{count}: \nArea: {carpark['DevelopmentName']['value']} \nLots: {carpark['ParkingAvalibility']['value']} \n"
+                    f"Distance from destination: {carpark['distance']} km\n"
+                )
 
-                await update.message.reply_text(closest_carparks_message)
+            await update.message.reply_text(closest_carparks_message)
 
-            await update.message.reply_text('Got your destination. Now please share your live location continuously.')
-            return LIVE_LOCATION
-        except Exception as e:
-            logger.error(f"Error fetching carparks: {e}")
-            await update.message.reply_text('There was an error fetching nearby carparks. Please try again later.')
-            return ConversationHandler.END
+        await update.message.reply_text('Got your destination. Now please share your live location continuously.')
+        return LIVE_LOCATION
     else:
         await update.message.reply_text('Please send your destination location by using the location sharing feature in Telegram.')
         return DESTINATION
 
 async def live_location(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    """Store the user's live location."""
+    """Check if the user is within 5km of the destination."""
     if update.message and update.message.location:
         user = update.message.from_user
         live_location = update.message.location
 
-        if user.id in user_data:
-            user_data[user.id]['live_location'] = (live_location.latitude, live_location.longitude)
-            # Schedule the job to check location only after receiving the live location
-            if 'job' not in user_data[user.id]:
-                job = context.job_queue.run_repeating(check_location, interval=10, first=0, data=user.id)
-                user_data[user.id]['job'] = job
+        destination = user_data.get(user.id, {}).get('destination')
+        print(destination)
+        if destination:
+            distance = geodesic((destination[0] , destination[1]), (live_location.latitude, live_location.longitude)).km
 
-    return LIVE_LOCATION
+            if distance <= 5:
+                await update.message.reply_text('You are within 5km of your destination!')
+                
+                nearest_carparks = ngsi_parking.geoquery_ngsi_point(input_type="Carpark", maxDistance=1000, lat=destination[0], long=destination[1])
+                if len(nearest_carparks) == 0:
+                    await update.message.reply_text("No Nearby carparks")
+                else:
+                    closest_three_carparks = find_closest_three_carparks(nearest_carparks_list=nearest_carparks, dest_lat=destination[0], dest_long=destination[1])
 
-async def check_location(context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Periodically check if the user is within 5km of their destination."""
-    job = context.job
-    user_id = job.data
-    if user_id in user_data:
-        destination = user_data[user_id].get('destination')
-        live_location = user_data[user_id].get('live_location')
-
-        if destination and live_location:
-            distance = geodesic(destination, live_location).km
-
-            if distance <= 5 and not user_data[user_id]['notified_within_5km']:
-                user_data[user_id]['notified_within_5km'] = True
-                context.bot.send_message(chat_id=user_id, text='You are within 5km of your destination!')
-
-                try:
-                    nearest_carparks = ngsi_parking.geoquery_ngsi_point(input_type="Carpark", maxDistance=1000, lat=destination[0], long=destination[1])
-                    if len(nearest_carparks) == 0:
-                        context.bot.send_message(chat_id=user_id, text="No nearby carparks found.")
-                    else:
-                        closest_three_carparks = find_closest_three_carparks(nearest_carparks_list=nearest_carparks, dest_lat=destination[0], dest_long=destination[1])
-
-                        closest_carparks_message = "The current closest 3 carparks to your destination with available lots are:\n"
-                        for count, carpark in enumerate(closest_three_carparks, 1):
-                            closest_carparks_message += (
-                                f"{count}: \nArea: {carpark['DevelopmentName']['value']} \nLots: {carpark['ParkingAvalibility']['value']} \n"
-                                f"Distance from destination: {carpark['distance']} km\n"
-                            )
-                        context.bot.send_message(chat_id=user_id, text=closest_carparks_message)
-                except Exception as e:
-                    logger.error(f"Error fetching carparks: {e}")
-                    context.bot.send_message(chat_id=user_id, text='There was an error fetching nearby carparks. Please try again later.')
-            elif distance > 5:
-                user_data[user_id]['notified_within_5km'] = False
-                context.bot.send_message(chat_id=user_id, text='Not within 5km of destination yet')
+                    closest_carparks_message = "The current closest 3 carparks to your destination with available lots are:\n"
+                    for count, carpark in enumerate(closest_three_carparks, 1):
+                        closest_carparks_message += (
+                            f"{count}: \nArea: {carpark['DevelopmentName']['value']} \nLots: {carpark['ParkingAvalibility']['value']} \n"
+                            f"Distance from destination: {carpark['distance']} km\n"
+                        )
+                    await update.message.reply_text(closest_carparks_message)
+            else:
+                await update.message.reply_text("You are not within 5km of your destination yet.")
+             
+        return LIVE_LOCATION
+    else:
+        if update.message:
+            await update.message.reply_text('Please share your live location by using the location sharing feature in Telegram.')
+        return LIVE_LOCATION
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Cancels and ends the conversation."""
@@ -155,13 +133,11 @@ def main() -> None:
     """Run the bot."""
     application = ApplicationBuilder().token(constants.TELEGRAM_BOT_KEY).build()
 
-    job_queue = application.job_queue
-
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start)],
         states={
             DESTINATION: [MessageHandler(filters.LOCATION | filters.TEXT, destination)],
-            LIVE_LOCATION: [MessageHandler(filters.LOCATION, live_location)],
+            LIVE_LOCATION: [MessageHandler(filters.LOCATION | filters.TEXT, live_location)],
         },
         fallbacks=[CommandHandler('cancel', cancel)],
     )

@@ -1,32 +1,32 @@
 [
   {
-    "id": "urn:ngsi-ld:Carpark:BLK330/337ANGMOKIOAVENUE8A25",
+    "id": "urn:ngsi-ld:Carpark:SuntecCity1",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "A25"
+      "value": "1"
     },
     "Region": {
       "type": "Property",
-      "value": ""
+      "value": "Marina"
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 330/337 ANG MO KIO AVENUE 8"
+      "value": "Suntec City"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.851627,
-          1.362769
+          103.85718,
+          1.29375
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 306
+      "value": 370
     },
     "LotType": {
       "type": "Property",
@@ -34,37 +34,37 @@
     },
     "ParkingSiteOwner": {
       "type": "Property",
-      "value": "HDB"
+      "value": "LTA"
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK436/443/445ANGMOKIOSTREET43A36",
+    "id": "urn:ngsi-ld:Carpark:MarinaSquare2",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "A36"
+      "value": "2"
     },
     "Region": {
       "type": "Property",
-      "value": ""
+      "value": "Marina"
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 436/443/445 ANG MO KIO STREET 43"
+      "value": "Marina Square"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.855279,
-          1.366407
+          103.85728,
+          1.29115
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 400
+      "value": 1264
     },
     "LotType": {
       "type": "Property",
@@ -72,37 +72,37 @@
     },
     "ParkingSiteOwner": {
       "type": "Property",
-      "value": "HDB"
+      "value": "LTA"
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK407/410/421ANGMOKIOAVENUE10A38",
+    "id": "urn:ngsi-ld:Carpark:RafflesCity3",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "A38"
+      "value": "3"
     },
     "Region": {
       "type": "Property",
-      "value": ""
+      "value": "Marina"
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 407/410/421 ANG MO KIO AVENUE 10"
+      "value": "Raffles City"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.854588,
-          1.363964
+          103.85319,
+          1.29382
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 411
+      "value": 459
     },
     "LotType": {
       "type": "Property",
@@ -110,37 +110,37 @@
     },
     "ParkingSiteOwner": {
       "type": "Property",
-      "value": "HDB"
+      "value": "LTA"
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK401/405ANGMOKIOAVENUE10A39",
+    "id": "urn:ngsi-ld:Carpark:TheEsplanade4",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "A39"
+      "value": "4"
     },
     "Region": {
       "type": "Property",
-      "value": ""
+      "value": "Marina"
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 401/405 ANG MO KIO AVENUE 10"
+      "value": "The Esplanade"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.854072,
-          1.361151
+          103.85561,
+          1.29011
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 84
+      "value": 591
     },
     "LotType": {
       "type": "Property",
@@ -148,37 +148,37 @@
     },
     "ParkingSiteOwner": {
       "type": "Property",
-      "value": "HDB"
+      "value": "LTA"
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK471/476ANGMOKIOSTREET44A40",
+    "id": "urn:ngsi-ld:Carpark:NationalGallery56",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "A40"
+      "value": "56"
     },
     "Region": {
       "type": "Property",
-      "value": ""
+      "value": "Marina"
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 471/476 ANG MO KIO STREET 44"
+      "value": "National Gallery"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.856982,
-          1.362356
+          103.85167,
+          1.29027
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 373
+      "value": 143
     },
     "LotType": {
       "type": "Property",
@@ -186,37 +186,37 @@
     },
     "ParkingSiteOwner": {
       "type": "Property",
-      "value": "HDB"
+      "value": "LTA"
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK466/470ANGMOKIOSTREET44A41",
+    "id": "urn:ngsi-ld:Carpark:ClarkeQuay59",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "A41"
+      "value": "59"
     },
     "Region": {
       "type": "Property",
-      "value": ""
+      "value": "Others"
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 466/470 ANG MO KIO STREET 44"
+      "value": "Clarke Quay"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.856933,
-          1.364937
+          103.84648,
+          1.290678
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 180
+      "value": 107
     },
     "LotType": {
       "type": "Property",
@@ -224,37 +224,37 @@
     },
     "ParkingSiteOwner": {
       "type": "Property",
-      "value": "HDB"
+      "value": "LTA"
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK461/465ANGMOKIOSTREET44A42",
+    "id": "urn:ngsi-ld:Carpark:FunanMall66",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "A42"
+      "value": "66"
     },
     "Region": {
       "type": "Property",
-      "value": ""
+      "value": "Others"
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 461/465 ANG MO KIO STREET 44"
+      "value": "Funan Mall"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.857364,
-          1.36658
+          103.8502,
+          1.2911
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 95
+      "value": 202
     },
     "LotType": {
       "type": "Property",
@@ -262,15 +262,15 @@
     },
     "ParkingSiteOwner": {
       "type": "Property",
-      "value": "HDB"
+      "value": "LTA"
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK457/458/460ANGMOKIOSTREET44A43",
+    "id": "urn:ngsi-ld:Carpark:ARMENIANSTREETOFFSTREETA0011",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "A43"
+      "value": "A0011"
     },
     "Region": {
       "type": "Property",
@@ -278,15 +278,167 @@
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 457/458/460 ANG MO KIO STREET 44"
+      "value": "ARMENIAN STREET OFF STREET"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.859267,
-          1.365997
+          103.848866,
+          1.293926
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 0
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "URA"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:CARPENTERSTREETOFFSTREETC0133",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "C0133"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "CARPENTER STREET OFF STREET"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.848183,
+          1.288266
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 0
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "URA"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:CLEMENCEAUAVENUEOFFSTREETC0162",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "C0162"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "CLEMENCEAU AVENUE OFF STREET"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.844517,
+          1.293973
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 0
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "Y"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "URA"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:HONGLIMPARKOFFSTREETH0024",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "H0024"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "HONG LIM PARK OFF STREET"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.847327,
+          1.286401
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 1
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "URA"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:BLK231BRASBASAHBASEMENTCARPARKBBB",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "BBB"
+    },
+    "Region": {
+      "type": "Property",
+      "value": ""
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "BLK 231 BRAS BASAH BASEMENT CAR PARK"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.853663,
+          1.29658
         ]
       }
     },
@@ -304,11 +456,11 @@
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK352AANGMOKIOSTREET32AM96",
+    "id": "urn:ngsi-ld:Carpark:BLK533AHONGLIMMSCPHLM",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "AM96"
+      "value": "HLM"
     },
     "Region": {
       "type": "Property",
@@ -316,21 +468,21 @@
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 352A ANG MO KIO STREET 32"
+      "value": "BLK 533A HONG LIM MSCP"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.85094,
-          1.364074
+          103.845491,
+          1.284758
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 340
+      "value": 0
     },
     "LotType": {
       "type": "Property",
@@ -342,11 +494,11 @@
     }
   },
   {
-    "id": "urn:ngsi-ld:Carpark:BLK181-186BISHANSTREET13BE11",
+    "id": "urn:ngsi-ld:Carpark:BLK261/262/264WATERLOOBASEMENTCARPARKWCB",
     "type": "Carpark",
     "CarParkID": {
       "type": "Property",
-      "value": "BE11"
+      "value": "WCB"
     },
     "Region": {
       "type": "Property",
@@ -354,173 +506,21 @@
     },
     "DevelopmentName": {
       "type": "Property",
-      "value": "BLK 181-186 BISHAN STREET 13"
+      "value": "BLK 261/262/264 WATERLOO BASEMENT CAR PARK"
     },
     "location": {
       "type": "GeoProperty",
       "value": {
         "type": "Point",
         "coordinates": [
-          103.853041,
-          1.349779
+          103.851938,
+          1.298808
         ]
       }
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 234
-    },
-    "LotType": {
-      "type": "Property",
-      "value": "C"
-    },
-    "ParkingSiteOwner": {
-      "type": "Property",
-      "value": "HDB"
-    }
-  },
-  {
-    "id": "urn:ngsi-ld:Carpark:BLK207ABISHANSTREET23BE25",
-    "type": "Carpark",
-    "CarParkID": {
-      "type": "Property",
-      "value": "BE25"
-    },
-    "Region": {
-      "type": "Property",
-      "value": ""
-    },
-    "DevelopmentName": {
-      "type": "Property",
-      "value": "BLK 207A BISHAN STREET 23"
-    },
-    "location": {
-      "type": "GeoProperty",
-      "value": {
-        "type": "Point",
-        "coordinates": [
-          103.848309,
-          1.355154
-        ]
-      }
-    },
-    "ParkingAvalibility": {
-      "type": "Property",
-      "value": 194
-    },
-    "LotType": {
-      "type": "Property",
-      "value": "C"
-    },
-    "ParkingSiteOwner": {
-      "type": "Property",
-      "value": "HDB"
-    }
-  },
-  {
-    "id": "urn:ngsi-ld:Carpark:BLK207/212/216/217BISHANSTREET23BE26",
-    "type": "Carpark",
-    "CarParkID": {
-      "type": "Property",
-      "value": "BE26"
-    },
-    "Region": {
-      "type": "Property",
-      "value": ""
-    },
-    "DevelopmentName": {
-      "type": "Property",
-      "value": "BLK 207/212/216/217 BISHAN STREET 23"
-    },
-    "location": {
-      "type": "GeoProperty",
-      "value": {
-        "type": "Point",
-        "coordinates": [
-          103.848457,
-          1.355895
-        ]
-      }
-    },
-    "ParkingAvalibility": {
-      "type": "Property",
-      "value": 31
-    },
-    "LotType": {
-      "type": "Property",
-      "value": "C"
-    },
-    "ParkingSiteOwner": {
-      "type": "Property",
-      "value": "HDB"
-    }
-  },
-  {
-    "id": "urn:ngsi-ld:Carpark:BLK212ABISHANSTREET23BE27",
-    "type": "Carpark",
-    "CarParkID": {
-      "type": "Property",
-      "value": "BE27"
-    },
-    "Region": {
-      "type": "Property",
-      "value": ""
-    },
-    "DevelopmentName": {
-      "type": "Property",
-      "value": "BLK 212A BISHAN STREET 23"
-    },
-    "location": {
-      "type": "GeoProperty",
-      "value": {
-        "type": "Point",
-        "coordinates": [
-          103.848631,
-          1.356656
-        ]
-      }
-    },
-    "ParkingAvalibility": {
-      "type": "Property",
-      "value": 241
-    },
-    "LotType": {
-      "type": "Property",
-      "value": "C"
-    },
-    "ParkingSiteOwner": {
-      "type": "Property",
-      "value": "HDB"
-    }
-  },
-  {
-    "id": "urn:ngsi-ld:Carpark:BLK213-215,218-227BISHANSTREET23BE28",
-    "type": "Carpark",
-    "CarParkID": {
-      "type": "Property",
-      "value": "BE28"
-    },
-    "Region": {
-      "type": "Property",
-      "value": ""
-    },
-    "DevelopmentName": {
-      "type": "Property",
-      "value": "BLK 213-215,218-227 BISHAN STREET 23"
-    },
-    "location": {
-      "type": "GeoProperty",
-      "value": {
-        "type": "Point",
-        "coordinates": [
-          103.84805,
-          1.357926
-        ]
-      }
-    },
-    "ParkingAvalibility": {
-      "type": "Property",
-      "value": 94
+      "value": 14
     },
     "LotType": {
       "type": "Property",

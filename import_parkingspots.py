@@ -45,157 +45,30 @@ Example LTA data return:
             "Agency": "LTA"
 '''
 
-def get_parking_data(): #Get parking data in NGSI-LD format
-    count = 0
-    entity_list = []
-    
-    #Import data from LTA
-    LTA_client = Traffic(API_KEY)
-    carpark_list = LTA_client.carpark_availability()
-
-    print("Example Carpark: ",carpark_list[0])
-    print("Number of carparks: ", len(carpark_list))
-    
-
-    for carpark in carpark_list:
-        remove_spaced_name = carpark["Development"].replace(' ', '') #remove spaces in development name
-        id = remove_spaced_name + str(carpark["CarParkID"])  #carparkID would be developmentname plus ID?
-        print("ID: ", id)
-        entity = Entity("Carpark", id , ctx=ctx) #type, id , ctx
-        
-        for key, value in carpark.items():
-            if key == "CarParkID":
-                entity.prop("CarParkID", value)
-            elif key == "Area":
-                entity.prop("Region", value)
-            elif key == "Development":
-                entity.prop("DevelopmentName", value)
-            elif key == "Location": # Geoproperty
-                geocoordinates = value.split() #lat, long
-                if len(geocoordinates) > 1:
-                    entity.gprop("location", ( float(geocoordinates[0]) , float(geocoordinates[1]) ) ) #Pass in point
-                    print("Lat " , geocoordinates[0] , " Long " , geocoordinates[1])
-            elif key == "AvailableLots":
-                entity.prop("ParkingAvalibility", value)
-            elif key == "LotType":
-                entity.prop("LotType", value)
-            elif key == "Agency":
-                entity.prop("ParkingSiteOwner", value)
-                
-        entity_list.append(entity) # Add entity to list
-            
-        count +=1
-        if count == 50000: # Limit number of carparks pulled for now
-            break
-            
-    return entity_list
-
-#TO optimise this
-def create_entities_in_broker (entities):
-    with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
-        count = 0
-        for entity in entities:
-            ret = client.upsert(entity)
-            if ret:
-                count +=1
-    print("Uploaded ", count)
-    return ret
-
-def update_entities_in_broker (entities):
-    with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
-        ret = client.upsert(entities)
-    print("Update ", ret)
-    return ret
-    
-def retrieve_ngsi_type(input_type: str):
-    with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
-        entities = client.query(type=input_type, ctx=ctx) #Query for all type of carpark
-        print("Number of entities retrieved: ", len(entities))
-        for entity in entities:
-            print(entity.id)
-    return entities
-
-    
-    
-
-
-
-
-def geoquery_ngsi_long(input_type: str, geoquery: str, broker_url=broker_url, broker_tenant=broker_tenant, ctx=ctx):
-
-    url = f"http://{broker_url}/api/broker/ngsi-ld/v1/entities/?type={input_type}&{geoquery}"
-
-    payload = {}
-    headers = {
-        'NGSILD-Tenant': broker_tenant,
-        'fiware-servicepath': '/',
-        'Link': f'<{ctx}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
-    }
-    response = requests.request("GET", url, headers=headers, data=payload)
-
-    print(response.text)
-
-    
-def geoquery_ngsi_point(input_type: str , maxDistance: int, lat: float, long: float , broker_url=broker_url, broker_tenant=broker_tenant, ctx=ctx):
-    
-    geometry="Point"
-    
-    # URL encode the coordinates
-    encoded_coordinates = urllib.parse.quote(f"[{lat},{long}]")
-    
-    # Construct the geoquery string
-    georel = f"near%3BmaxDistance=={maxDistance}"
-    geoquery = f"geometry={geometry}&georel={georel}&coordinates={encoded_coordinates}"
-
-    # Construct the full URL
-    url = f"http://{broker_url}/api/broker/ngsi-ld/v1/entities/?type={input_type}&{geoquery}"
-
-    payload = {}
-    headers = {
-        'NGSILD-Tenant': broker_tenant,
-        'fiware-servicepath': '/',
-        'Link': f'<{ctx}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
-    }
-
-    print(url)
-    response = requests.request("GET", url, headers=headers, data=payload)
-
-    print(response.text)
-    
-    
-
-                
-def retrieve_carparks():
-    return retrieve_ngsi_type("Carpark")
-            
-def delete_all_type(type):
-    with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
-        entities = client.query(type=type, ctx=ctx)
-        print("Entities retrieved: ", len(entities))
-
-        #Delete by type
-        #client.drop("https://schema.org/BusStop")
-
-        #Delete by list
-        client.delete(entities)
 
 
             
-'''
-entity_list = get_parking_data()
+
+entity_list = ngsi_parking.get_parking_data()
 print ("Num entities to upload" , len(entity_list))
 entity_list[1].pprint()
-create_entities_in_broker(entity_list)
+ngsi_parking.create_entities_in_broker(entity_list)
 
 
 print("\n\n\n\n\n")
-retrieved_carparks = retrieve_carparks()
+retrieved_carparks = ngsi_parking.retrieve_carparks()
 print ("Num entities retrieved" , len(retrieved_carparks))
 retrieved_carparks[0].pprint()
 
+#Delete carparks
 '''
 print("\n\n\n\n\n")
-#delete_all_type("Carpark")
+ngsi_parking.delete_all_type("Carpark")
+'''
+
+
+#Geoquery example
+'''
 gq = "geometry=Point&georel=near%3BmaxDistance==800&coordinates=%5B103.83359,1.3071%5D"
 #retrieved_carparks = geoquery_ngsi_long(input_type = "Carpark" , geoquery = gq)
 
@@ -242,3 +115,4 @@ for carpark in closest_three_carparks:
 print(
     closest_carparks
 )
+'''
