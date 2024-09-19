@@ -1,13 +1,13 @@
 
-# NGSI-LD-SG-Datamall
+# NGSI-LD-SG-Datamall: Examples for interns
  Pull open Singapore data into NGSI-LD broker
 
-#To run
+### Fill in your API keys
 create /mylibs/constants.py
 Copy /mylibs/constants.py.example into /mylibs/constants.py
-Fill in your API keys
+Fill in your API keys (Request them from LTA datamall and telegram as needed)
 
-#Create venev
+### Create venev
 If necessary, create virtual environment:
 
 ```
@@ -16,11 +16,11 @@ myenv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-#To run:
+### To run:
 python file_name
 
 
-#Quick start
+## Quick start
 
 Run NGSI-LD broker locally
 
@@ -41,7 +41,7 @@ python delete_parkingspots.py
 =======
 
 
-# NGSI-LD Datamall
+# NGSI-LD Datamall Telegrambot
 
 ## Readme
 
