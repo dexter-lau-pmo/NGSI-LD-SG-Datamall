@@ -1,157 +1,5 @@
 [
   {
-    "id": "urn:ngsi-ld:Carpark:SuntecCity1",
-    "type": "Carpark",
-    "CarParkID": {
-      "type": "Property",
-      "value": "1"
-    },
-    "Region": {
-      "type": "Property",
-      "value": "Marina"
-    },
-    "DevelopmentName": {
-      "type": "Property",
-      "value": "Suntec City"
-    },
-    "location": {
-      "type": "GeoProperty",
-      "value": {
-        "type": "Point",
-        "coordinates": [
-          103.85718,
-          1.29375
-        ]
-      }
-    },
-    "ParkingAvalibility": {
-      "type": "Property",
-      "value": 370
-    },
-    "LotType": {
-      "type": "Property",
-      "value": "C"
-    },
-    "ParkingSiteOwner": {
-      "type": "Property",
-      "value": "LTA"
-    }
-  },
-  {
-    "id": "urn:ngsi-ld:Carpark:MarinaSquare2",
-    "type": "Carpark",
-    "CarParkID": {
-      "type": "Property",
-      "value": "2"
-    },
-    "Region": {
-      "type": "Property",
-      "value": "Marina"
-    },
-    "DevelopmentName": {
-      "type": "Property",
-      "value": "Marina Square"
-    },
-    "location": {
-      "type": "GeoProperty",
-      "value": {
-        "type": "Point",
-        "coordinates": [
-          103.85728,
-          1.29115
-        ]
-      }
-    },
-    "ParkingAvalibility": {
-      "type": "Property",
-      "value": 1264
-    },
-    "LotType": {
-      "type": "Property",
-      "value": "C"
-    },
-    "ParkingSiteOwner": {
-      "type": "Property",
-      "value": "LTA"
-    }
-  },
-  {
-    "id": "urn:ngsi-ld:Carpark:RafflesCity3",
-    "type": "Carpark",
-    "CarParkID": {
-      "type": "Property",
-      "value": "3"
-    },
-    "Region": {
-      "type": "Property",
-      "value": "Marina"
-    },
-    "DevelopmentName": {
-      "type": "Property",
-      "value": "Raffles City"
-    },
-    "location": {
-      "type": "GeoProperty",
-      "value": {
-        "type": "Point",
-        "coordinates": [
-          103.85319,
-          1.29382
-        ]
-      }
-    },
-    "ParkingAvalibility": {
-      "type": "Property",
-      "value": 459
-    },
-    "LotType": {
-      "type": "Property",
-      "value": "C"
-    },
-    "ParkingSiteOwner": {
-      "type": "Property",
-      "value": "LTA"
-    }
-  },
-  {
-    "id": "urn:ngsi-ld:Carpark:TheEsplanade4",
-    "type": "Carpark",
-    "CarParkID": {
-      "type": "Property",
-      "value": "4"
-    },
-    "Region": {
-      "type": "Property",
-      "value": "Marina"
-    },
-    "DevelopmentName": {
-      "type": "Property",
-      "value": "The Esplanade"
-    },
-    "location": {
-      "type": "GeoProperty",
-      "value": {
-        "type": "Point",
-        "coordinates": [
-          103.85561,
-          1.29011
-        ]
-      }
-    },
-    "ParkingAvalibility": {
-      "type": "Property",
-      "value": 591
-    },
-    "LotType": {
-      "type": "Property",
-      "value": "C"
-    },
-    "ParkingSiteOwner": {
-      "type": "Property",
-      "value": "LTA"
-    }
-  },
-  {
     "id": "urn:ngsi-ld:Carpark:NationalGallery56",
     "type": "Carpark",
     "CarParkID": {
@@ -178,7 +26,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 143
+      "value": 208
     },
     "LotType": {
       "type": "Property",
@@ -216,7 +64,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 107
+      "value": 301
     },
     "LotType": {
       "type": "Property",
@@ -254,7 +102,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 202
+      "value": 374
     },
     "LotType": {
       "type": "Property",
@@ -292,7 +140,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 0
+      "value": 44
     },
     "LotType": {
       "type": "Property",
@@ -330,7 +178,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 0
+      "value": 68
     },
     "LotType": {
       "type": "Property",
@@ -406,7 +254,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 1
+      "value": 23
     },
     "LotType": {
       "type": "Property",
@@ -444,7 +292,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 45
+      "value": 143
     },
     "LotType": {
       "type": "Property",
@@ -482,7 +330,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 0
+      "value": 497
     },
     "LotType": {
       "type": "Property",
@@ -520,7 +368,7 @@
     },
     "ParkingAvalibility": {
       "type": "Property",
-      "value": 14
+      "value": 92
     },
     "LotType": {
       "type": "Property",
@@ -529,6 +377,158 @@
     "ParkingSiteOwner": {
       "type": "Property",
       "value": "HDB"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:SuntecCity1",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "1"
+    },
+    "Region": {
+      "type": "Property",
+      "value": "Marina"
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "Suntec City"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.85718,
+          1.29375
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 842
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "LTA"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:MarinaSquare2",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "2"
+    },
+    "Region": {
+      "type": "Property",
+      "value": "Marina"
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "Marina Square"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.85728,
+          1.29115
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 1340
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "LTA"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:RafflesCity3",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "3"
+    },
+    "Region": {
+      "type": "Property",
+      "value": "Marina"
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "Raffles City"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.85319,
+          1.29382
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 563
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "LTA"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Carpark:TheEsplanade4",
+    "type": "Carpark",
+    "CarParkID": {
+      "type": "Property",
+      "value": "4"
+    },
+    "Region": {
+      "type": "Property",
+      "value": "Marina"
+    },
+    "DevelopmentName": {
+      "type": "Property",
+      "value": "The Esplanade"
+    },
+    "location": {
+      "type": "GeoProperty",
+      "value": {
+        "type": "Point",
+        "coordinates": [
+          103.85561,
+          1.29011
+        ]
+      }
+    },
+    "ParkingAvalibility": {
+      "type": "Property",
+      "value": 623
+    },
+    "LotType": {
+      "type": "Property",
+      "value": "C"
+    },
+    "ParkingSiteOwner": {
+      "type": "Property",
+      "value": "LTA"
     }
   }
 ]

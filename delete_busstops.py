@@ -3,6 +3,7 @@ from requests.exceptions import RequestException, HTTPError
 from ngsildclient import Client, Entity, SmartDataModels
 from datetime import datetime
 import mylibs.constants  as constants
+import mylibs.ngsi_ld as ngsi_ld
 
 ctx = constants.ctx
 broker_url = constants.broker_url

@@ -4,6 +4,7 @@ print(sys.version)
 #LTA
 
 import mylibs.constants  as constants
+import mylibs.ngsi_ld  as ngsi_ld
 from landtransportsg import PublicTransport
 
 import json
@@ -59,23 +60,14 @@ for bus_stop in bus_stop_list:
     
     print("Calculated NGSI-LD Geolocation should be: " , bus_stop['location'])
 
-    count+=1
-    if count == 5:
-        break #Only run through first bus stop, remove break for all bus stops
 print(bus_stop_list[0])
 
 
 
-
-
-
 print("\n\n\n\n\n\n_______________________________________\n\n\n")
-
 print("Format data in NGSI-LD")
 
 #Create entity locally only
-
-
 
 entity_list = []
 count = 0
@@ -85,12 +77,6 @@ for bus_stop in bus_stop_list:
     print(bus_stop['id'])
     entity = Entity("BusStop", bus_stop['id'], ctx=ctx) #Entity type, id
     
-    # Once we've created our entity by calling the Entity() constructor 
-    # We can add properties thanks to primitives
-    
-    # tprop() sets a TemporalProperty
-    #entity.tprop("dateObserved", datetime(2018, 8, 7, 12))
-
     # gprop() sets a GeoProperty : Point, Polygon, ...
     entity.gprop("location", (bus_stop['Latitude'], bus_stop['Longitude']))
 
@@ -100,57 +86,12 @@ for bus_stop in bus_stop_list:
     
     entity_list.append(entity) #Add to list
     # rel() sets a Relationship Property
-    #entity.rel("refPointOfInterest", "PointOfInterest:RZ:MainSquare")
     
-    count+=1
-    if count == 5:
-        break #Only run through first bus stop, remove break for all bus stops
     
 entity.pprint()
-
-print("\n\n\n\n\n\n_______________________________________\n\n\n")
-
-
-
 
 print("Attempt to upload to broker")
 
 #Put entity in broker
 
-def get_json_or_text(response):
-    try:
-        return response.json()
-    except ValueError:
-        return response.text
-
-
-with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
-
-    # Try creating the entity
-    #print(client.list_types())
-    upload_success_count = 0
-    for ngsi_entity in entity_list:
-        print("\nupload to broker")
-        try:
-            ret = client.upsert(ngsi_entity)
-            print("Entity created:", ret)
-            upload_success_count+=1
-        except (RequestException, HTTPError) as e:
-            print(f"Failed to create entity: {e}")
-    print("\nEntities Successfuly Created: ",upload_success_count)
-        
-       
-    # Try retrieving the entity
-    pull_success_count = 0
-    for ngsi_entity in entity_list:
-        print("\nPull from broker")
-        try:
-            ret_entity = client.get(ngsi_entity) #Can use urn ID string also
-            print("Entity retrieved:", ret_entity)
-            pull_success_count+=1
-        except (RequestException, HTTPError) as e:
-            print(f"Failed to retrieve entity: {e}")
-    print("\nEntities Successfuly Created: ",upload_success_count)
-    print("\nEntities Successfuly Pulled: ",pull_success_count)
-    
-
+ngsi_ld.create_entities_in_broker(entity_list, batch_size=100)

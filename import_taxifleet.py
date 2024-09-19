@@ -2,6 +2,7 @@
 
 from landtransportsg import PublicTransport
 import mylibs.constants  as constants
+import mylibs.ngsi_ld_parking as ngsi_parking
 import json
 from requests.exceptions import RequestException, HTTPError
 from ngsildclient import Client, Entity, SmartDataModels
@@ -64,11 +65,12 @@ with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant) as clie
     except Exception as e:
         print(f"Unknown error: {e}")
         
-        
-    print("\nPull from broker")
+'''        
+print("\nPull from broker")
     # Try retrieving the entity
+with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant) as client:
     try:
-        ret_entity = client.get("urn:ngsi-ld:TaxiFleet:AvaliableTaxiFleet")
+        ret_entity = ngsi_parking.retrieve_ngsi_type("TaxiFleet")
         print("Entity retrieved:", ret_entity)
     except (RequestException, HTTPError) as e:
         print(f"Failed to retrieve entity: {e}")
@@ -76,3 +78,4 @@ with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant) as clie
         print(f"Unknown error: {e}")
 
 
+'''

@@ -19,4 +19,4 @@ broker_port = constants.broker_port # default, 80
 temporal_port = constants.temporal_port #default 1026
 broker_tenant = constants.broker_tenant
 
-ngsi_ld.delete_all_type("Carpark")
+ngsi_ld.delete_all_type("Taxi")

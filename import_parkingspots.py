@@ -8,6 +8,7 @@ from requests.exceptions import RequestException, HTTPError
 from ngsildclient import Client, Entity, SmartDataModels
 from datetime import datetime
 import mylibs.ngsi_ld_parking as ngsi_parking
+import mylibs.ngsi_ld as ngsi_ld
 from geopy.distance import geodesic
 
 
@@ -52,7 +53,7 @@ Example LTA data return:
 entity_list = ngsi_parking.get_parking_data()
 print ("Num entities to upload" , len(entity_list))
 entity_list[1].pprint()
-ngsi_parking.create_entities_in_broker(entity_list)
+ngsi_ld.create_entities_in_broker(entity_list)
 
 
 print("\n\n\n\n\n")

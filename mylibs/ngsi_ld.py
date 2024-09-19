@@ -1,5 +1,4 @@
 import mylibs.constants  as constants
-import mylibs.ngsi_ld  as ngsi_ld
 from landtransportsg import Traffic
 import requests
 import urllib.parse
@@ -7,8 +6,9 @@ import urllib.parse
 import json
 from requests.exceptions import RequestException, HTTPError
 from ngsildclient import Client, Entity, SmartDataModels
-from datetime import datetime, timezone
+from datetime import datetime
 
+import warnings
 
 API_KEY = constants.LTA_API_KEY
 ctx = constants.ctx
@@ -17,90 +17,7 @@ broker_port = constants.broker_port # default, 80
 temporal_port = constants.temporal_port #default 1026
 broker_tenant = constants.broker_tenant
 
-
-
-#Convert to NGSI-LD
 '''
-Carpark
-- id - Core context
-- DevelopmentName (From LTA)
-- Region (From LTA)
-- Location - Gprop
-- Price (Pending Terrence)
-- ParkingAvalibility - From SDM 
-- ParkingChargeType - From SDM (Pending Terrence)
-- ParkingMaxAvalibility - From SDM (Info not avaliable)
-- DataSource - From SDM
-- ParkingSiteOwner (relationship) - From SDM
-
-
-Example LTA data return:
-            "CarParkID": "1",
-            "Area": "Marina",
-            "Development": "Suntec City",
-            "Location": "1.29375 103.85718",
-            "AvailableLots": 442,
-            "LotType": "C",
-            "Agency": "LTA"
-'''
-
-def get_parking_data(): #Get parking data in NGSI-LD format
-    count = 0
-    entity_list = []
-    current_time_utc = datetime.now(timezone.utc)
-    
-    #Import data from LTA
-    LTA_client = Traffic(API_KEY)
-    carpark_list = LTA_client.carpark_availability()
-
-    print("Example Carpark: ",carpark_list[0])
-    print("Number of carparks: ", len(carpark_list))
-    
-
-    for carpark in carpark_list:
-    
-        #Skip loop if entry is not about cars
-        if carpark["LotType"] != "C":
-            continue
-    
-        remove_spaced_name = carpark["Development"].replace(' ', '') #remove spaces in development name
-        id = remove_spaced_name + str(carpark["CarParkID"])  #carparkID would be developmentname plus ID?
-        print("ID: ", id)
-        entity = Entity("Carpark", id , ctx=ctx) #type, id , ctx
-        #entity.tprop("observedAt", time_now) #Append time that lot was created to be now
-        
-        for key, value in carpark.items():
-            if key == "CarParkID":
-                entity.prop("CarParkID", value)
-            elif key == "Area":
-                entity.prop("Region", value)
-            elif key == "Development":
-                entity.prop("DevelopmentName", value)
-            elif key == "Location": # Geoproperty
-                geocoordinates = value.split() #lat, long
-                if len(geocoordinates) > 1:
-                    entity.gprop("location", ( float(geocoordinates[0]) , float(geocoordinates[1]) ) ) #Pass in point
-                    print("Lat " , geocoordinates[0] , " Long " , geocoordinates[1])
-            elif key == "AvailableLots":
-                entity.prop("ParkingAvalibility", value, observedat=current_time_utc)
-            elif key == "LotType":
-                entity.prop("LotType", value)
-            elif key == "Agency":
-                entity.rel("ParkingSiteOwner", value)
-                
-        entity_list.append(entity) # Add entity to list
-            
-            
-    return entity_list
-
-
-def retrieve_carparks():
-    return ngsi_ld.retrieve_ngsi_type("Carpark")
-
-
-
-#Moved to ngsi_ld.py
-'''                
 def create_entities_in_broker (entities):
     with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
         count = 0
@@ -110,7 +27,28 @@ def create_entities_in_broker (entities):
                 count +=1
     print("Uploaded ", count)
     return ret
-
+'''
+#Batch size controls how many entities we upload at a time. Small onbjects can use a larger batch size to increase speed
+def create_entities_in_broker(entities, batch_size=30):
+    with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port) as client:
+        count = 0
+        failed = 0
+        # Split the entities list into chunks of the given batch size
+        for i in range(0, len(entities), batch_size):
+            chunk = entities[i:i+batch_size]  # Get a chunk of the specified batch size
+            ret = client.upsert(chunk)  # Upsert the chunk
+            
+            if ret:
+                count += len(ret.success)
+                if len(ret.errors)>0:
+                    warnings.warn("Some entities have failed to upload")
+                    failed += len(ret.errors)
+                    print(ret.errors)
+                
+    print("Uploaded", count)
+    print("failed ", failed)
+    return ret    
+    
 def update_entities_in_broker (entities):
     with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
         ret = client.upsert(entities)
@@ -125,14 +63,7 @@ def retrieve_ngsi_type(input_type: str):
             print(entity.id)
     return entities
     
-
-def retrieve_entity_from_json_file(output_file=constants.cache):
-    entity_list: list[Entity] = Entity.load(output_file)
-    print("\n\n")
-    #print(carpark_list)
-    print("Number of entities received:  " , len(entity_list))
-    return entity_list
-
+    
 def retrieve_entity_from_json_file(output_file=constants.cache):
     try:
         entity_list = Entity.load(output_file)
@@ -143,7 +74,8 @@ def retrieve_entity_from_json_file(output_file=constants.cache):
     print("\n\n")
     print("Number of entities received:", len(entity_list))
     return entity_list
-
+    
+    
 
 def geoquery_ngsi_long(input_type: str, geoquery: str, broker_url=broker_url, broker_tenant=broker_tenant, ctx=ctx):
 
@@ -216,8 +148,8 @@ def geoquery_ngsi_point(input_type: str , maxDistance: int, lat: float, long: fl
         print("Response text:", response.text)
     
     return retrieve_entity_from_json_file(output_file)
-
-            
+    
+    
 def delete_all_type(type):
     with Client(hostname=broker_url, port=broker_port, tenant=broker_tenant, port_temporal=temporal_port ) as client:
         entities = client.query(type=type, ctx=ctx)
@@ -228,6 +160,3 @@ def delete_all_type(type):
 
         #Delete by list
         client.delete(entities)
-
-'''
-           
