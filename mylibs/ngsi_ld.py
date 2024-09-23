@@ -160,3 +160,6 @@ def delete_all_type(type):
 
         #Delete by list
         client.delete(entities)
+
+def save_batch(entity_list , filename):
+    ngsildclient.save_batch(entities, filename , indent=2)

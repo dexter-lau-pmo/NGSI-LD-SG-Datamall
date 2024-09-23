@@ -13,7 +13,8 @@ API_KEY = constants.LTA_API_KEY
 
 
 ctx = constants.ctx
-broker_url = constants.broker_url
+#broker_url = constants.broker_url
+broker_url = "35.185.233.243"
 broker_port = constants.broker_port # default, 80
 temporal_port = constants.temporal_port #default 1026
 broker_tenant = constants.broker_tenant
@@ -43,7 +44,7 @@ for taxi_location in taxi_list:
     
     entity = Entity("Taxi", taxi_id, ctx=ctx) #Entity type, id
     
-    # tprop() sets a TemporalProperty
+    #tprop() sets a TemporalProperty
     entity.tprop("dateObserved", current_time_utc)
     
     # gprop() sets a GeoProperty : Point, Polygon, ...
